@@ -26,7 +26,7 @@ Existing works have predicted user behavior on social media using either image o
 
 Existing research recognizes the value of modeling user behavior on social media using machine learning models \cite{Li2015, 8029313, Ohsawa2013, Liu2012, Li2015}. This pattern of research reflects the desire to understand consumer behavior on social media \cite{Fisher2009}. The studies have focused on particular metrics, including user click-through rates \cite{Li2015}, user interaction with Facebook posts \cite{8029313}, predicting user tendency to follow pages \cite{Ohsawa2013}, and user sentiment \cite{Liu2012,Wang2015}. A large amount of research is concerned with better understanding user behavior on social media.
 
-The existing research understands user behaviors through behavior models, which often include machine learning models \cite{Li_et_al_2015, 8029313, Ohsawa2013, Liu2012, Li2015}, such as through statistical models \cite{Li_et_al_2015}, neural networks \cite{8029313}, text idf models \cite{Ohsawa2013}, opinion mining \cite{Liu2012}, and sentiment analysis of images \cite{Wang2015}. This research demonstrates the usefulness of user behavior models for gaining insight into understanding user social media behavior. Further research can build upon this methodology of creating and validating user behavior models to better understand user behavior.
+The existing research understands user behaviors through behavior models, which often include machine learning models \cite{Li2015, 8029313, Ohsawa2013, Liu2012, Li2015}, such as through statistical models \cite{Li2015}, neural networks \cite{8029313}, text idf models \cite{Ohsawa2013}, opinion mining \cite{Liu2012}, and sentiment analysis of images \cite{Wang2015}. This research demonstrates the usefulness of user behavior models for gaining insight into understanding user social media behavior. Further research can build upon this methodology of creating and validating user behavior models to better understand user behavior.
 
 Convolutional Neural Networks (CNNs) are often used for modeling social media data with images.  They have been used for gender classification \cite{Hassner2015}, for visual sentiment \cite{Segalin2017, Xu2014}, to detect sarcasm on Twitter \cite{Poria2016}, for detecting stress in social media images \cite{Lin2014}, to perform social media profiling \cite{Segalin2017}, to predict social media popularity \cite{Gelli2015}, and to predict which posts will receive the post clicks \cite{Khosla2014}. CNNs are the standard in the realm of social media for image analysis \cite{Hassner2015}. 
 
@@ -40,7 +40,7 @@ The situation is made worse when evaluating image-based studies, which fail to i
 
 The application of this study's method is modeling user interaction with FGC social media posts. FGC posts are cultivated by advertisers for the purpose of influencing user behavior. Given the applied aspect of this research, it is worth outlining its applied significance. The study applies to brands on social media who seek to influence users with their posts.
 
-Advertisers are most concerned with social media metrics, especially those that promote engagement \cite{Tiago2014}, which include click-through rate (CTR), brand awareness, and word-of-mouth buzz. Advertisers associate theses with advertisement return on investment (ROI), which is known as the Holy Grail of social media \cite{Fisher2009}. However advertiser calculate ROI, it often includes an increase in user interaction \cite{Romero2011, Schacht}. This study successfully models user engagement, which is of great interest advertisers and social media platforms.  
+Advertisers are most concerned with social media metrics, especially those that promote engagement \cite{Tiago2014}, which include click-through rate (CTR), brand awareness, and word-of-mouth buzz. Advertisers associate theses with advertisement return on investment (ROI), which is known as the Holy Grail of social media \cite{Fisher2009}. However advertiser calculate ROI, it often includes an increase in user interaction \cite{Romero2011, Schacht2015}. This study successfully models user engagement, which is of great interest advertisers and social media platforms.  
 
 %Our text and image architecture for predicting advertisement performance utilizes deep learning and combines a Neural Network (NN) and Convolutional Neural Network (CNN).  The research compares model performance between the text-based and image-based models.  The combined model far outperforms text-only or image-only models. Therefore, future work can utilize combined models when analyzing social media advertisements.  Social media platforms and advertisers can improve their advertisement performance predictions by utilizing the model from this study.  
 
@@ -146,12 +146,16 @@ Our machine learning algorithm's output was training against each post's comment
 
 The Python library Keras trained the machine learning models. The models predict continuous variables, which requires the model to perform regression. Keras provides many loss functions for regression.  The research's ultimate goal is to differentiate between ad performance, so the researchers chose a loss function that more heavily penalizes significant differences in user interaction, which is accomplished by choosing the Mean Squared Error (MSE) loss function since it has a squared loss penalty for any differences.  The combined model outperformed both the text-only and the image-only models for predicting all social media metrics.  Figure-\ref{mse_ratios} displays results as a ratio to the combined model's loss. 
 
-\begin{figure}
+\begin{table}[]
 \centering
-\includegraphics[width=\columnwidth]{images/MSE_Results.png}
-\caption{Model Mean Squared Error Reported as a Ratio to the Combined Neural Network Model's Mean Squared Error}
-\label{mse_ratios}
-\end{figure}
+\begin{tabular}{lllll}
+Metrics (MSE Ratio) & Text-Based NN & Image-Based CNN & Combined Decision Tree & Combined NN \\
+Share Count       & 3.44 & 1.01 & 2.58 & 1.00 \\
+Comment Count     & 1.02 & 1.01 & 1.29 & 1.00 \\
+Comment Sentiment & 1.42 & 1.14 & 4.20 & 1.00
+\end{tabular}
+\caption{\label{tab:widgets}Model Mean Squared Error Reported as a Ratio to the Combined Neural Network Model's Mean Squared Error}
+\end{table}
 
 \subsubsection{Model Performance}
 The combined model best predicted all user behavior metrics. Each machine learning model had its lowest MSE predicting for share count. The CNNs achieved a lower MSE than the NN on all metrics. Moreover, the CNN performance is best on data exhibiting a higher variance. Figure \ref{share_count_histogram} and \ref{comment_sentiment_histogram} show the predicted vs actual distribution for the combined model.
