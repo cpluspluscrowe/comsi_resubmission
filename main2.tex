@@ -47,6 +47,8 @@ Advertisers want to impact future sales from the untapped market \cite{Guo2020}.
 
 Forecasting user response to advertisements is important because advertisers view social media as a method for creating both tangible and intangible firm value that improves business performance \cite{Authors2013}. Tangible benefits include a decreased time needed for users to make a buying decision \cite{Authors2013}. Intangible benefits include how advertisements influence buyer decisions \cite{Authors2013}. In addition, with better forecasting, advertisers can improve planning their sales cycles and projected revenue \cite{Imsa2020}. This paper provides details on improved user behavior forecasting, which is beneficial to advertising revenue. 
 
+Social media serves as a platform where brands can create and maintain an online presence \cite{Greenwood2016}. Social media can create tangible value that improves business performance \cite{Authors2013}. The desire is that tangible user engagements result in faster user conversions \cite{Authors2013}. Social media can serve as a platform for influencing their target audiences and increase their bottom-lines.
+
 \subsection{Research Summary}
 
 Our research provides a method for combining text and image data for modeling user behavior on social media. We demonstrate the successful implementation of a model combining image and text data and demonstrate its improved performance over single-data type models. The chosen method makes use of an ensemble model whose input is a text-based NN and image-based CNN. The combined model outperforms the text and image models when predicting user click, share, comment, and comment sentiment. The results of the sixteen machine learning models are provided in the results section and the discussion provides insights concerning the model's performance and its application to advertising social media data. Future social media studies should adopt the combined model methodology when modeling user behavior on social media.
@@ -54,8 +56,6 @@ Our research provides a method for combining text and image data for modeling us
 The remaining paper consists of five sections. The related works will cover existing studies that model user behavior on social media and will delineate studies relying on text data or image data. We also include methodologies for processing text and image data within the related works section. The methodology section will describe the creation of the sixteen machine learning models, four text-only, four image-only, and eight combined models with different architectures. The result section outlines the result of the combined model, juxtaposed with text-only and image-only models. The discussion delineates why the combined model produces an improved performance. The conclusion and future work outline ways future research can adopt these methods to better model user behavior on social media.
 
 \section{Related Work}
-% Extra, might add
-%\subsubsection{Growth in Social Media Research}
 
 \subsubsection{Text-based Social Media Models}
 Text models exist to predict user interaction on Facebook \cite{8029313}. The predicted user metrics include page likes, shares, and comment counts from this data. The analysis categorizes all posts into engagement categories, e.g., low, medium, and high.  The Neural Network trains with on the text and time data. The model can accurately predict for lower user engagement but fails to predict for higher levels of engagement. The study's sample size was 100k posts and did not incorporate images or comment text in its predictions. Nevertheless, the study found that text data can predict limited levels of user engagement.
@@ -73,16 +73,12 @@ Companies calculate social media revenue return on investment (ROI) via their ad
 
 Users visit social media sites to gain information \cite{Fisher2009}—for example, 34\% of participants post products about opinions on blogs. Moreover, traffic to blogs keeps increasing 50\% alone that year, compared to 17\% at CNN, MSNBC, and the New York Times. 70\% of consumers visit social media sites for information. 49\% of the 70\% buy based on social media content. 36\% of participants better rate companies with blogs. 60\% of users pass along social media data to other users. Persons use social media to learn and gain opinions about products and brands.
 
-\subsection{Related Works on User Engagement on Social Media}
-Social media serves as a platform where brands can create and maintain an online presence \cite{Greenwood2016}. Social media can create tangible value that improves business performance \cite{Authors2013}. The desire is that tangible user engagements result in faster user conversions \cite{Authors2013}. Social media can serve as a platform for influencing their target audiences and increase their bottom-lines.
-
-\subsection{Research Gaps}
-The research gap we address is the insufficiency of existing research to holistically model advertisement performance. However, machine learning advances have made such modeling feasible. This research fills the gap in current models. It also provides an architecture for combining image and text-based deep learning models.
-
 \subsubsection{Research Questions}
-This thesis introduces the following high-level question: Can text and image data be used to predict user interaction on social media via machine learning?  Further, we introduce the following hypothesis:
-    
-\quad{1. Machine learning models can use text and image-based data to predict user interaction on social media with a mean squared error that is lower than the mean squared error produced by either the text or image-based machine learning models.}
+\b{Research Question:} Can a combination of text and image data better predict user engagement on social media using machine learning?
+
+\quad{1. When predicting user engagement on social media, models trained using both text and image data outperform either text or image models.}
+
+The question explores the existing gap in using a machine learning architecture that digests both image and text data to predict user engagement. Such an architecture might include text-based NN, CNNs, and popular models like decision trees. The predicted user engagement consists of the count of likes, comments, shares, and comment sentiment. Models that predict numbers use regression and mean-squared error (MSE) as their loss function. This research explores whether model architectures that combine text and image better produce a model with a lower loss than their text and image counterparts. 
 
 \section{Methods}
 Our proposed method combines both text and image data as features in a machine-learning algorithm to predict user interaction with page content. We did this by examining user interaction with Facebook posts, representing both images and text as features within a machine learning model.
