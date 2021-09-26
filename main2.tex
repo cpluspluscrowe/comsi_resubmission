@@ -76,17 +76,22 @@ Users visit social media sites to gain information \cite{Fisher2009}—for examp
 \subsubsection{Research Questions}
 \b{Research Question:} Can a combination of text and image data better predict user engagement on social media using machine learning?
 
-\quad{1. When predicting user engagement on social media, models trained using both text and image data outperform either text or image models.}
+\quad{When predicting user engagement on social media, models trained using both text and image data outperform either text or image models.}
 
 The question explores the existing gap in using a machine learning architecture that digests both image and text data to predict user engagement. Such an architecture might include text-based NN, CNNs, and popular models like decision trees. The predicted user engagement consists of the count of likes, comments, shares, and comment sentiment. Models that predict numbers use regression and mean-squared error (MSE) as their loss function. This research explores whether model architectures that combine text and image better produce a model with a lower loss than their text and image counterparts. 
 
+\b{Research Question:} Why are images better than text data for predicting user comment sentiment using machine learning?
+
+\quad{Models trained on image data better predict user comment sentiment than models only trained on text data.}
+
+Existing studies use images in CNN models to predict visual sentiment \cite{Sengalin2017, Xu2014}. If a relationship exists between visual sentiment and user response, we expect image-based CNNs to perform well at predicting user sentiment. Nevertheless, text-data provides a great deal of the post's content. It is worthwhile to juxtapose how well text-based and image-based models compare. This research question will examine the ability for image-based models to predict the sentiment of users, via their comments.
+
 \section{Methods}
-Our proposed method combines both text and image data as features in a machine-learning algorithm to predict user interaction with page content. We did this by examining user interaction with Facebook posts, representing both images and text as features within a machine learning model.
 
-\subsection{Data Context}
-The research obtains the Facebook post URLs from AdEspresso. Hootsuite owns the website, a social media management platform created in 2008 (Hootsuite). The company manages content for many platforms, including Twitter, Facebook, Instagram, LinkedIn, Google+, and YouTube (Hootsuite). The AdEspresso website provides a management platform for social media advertising. It allows marketers to create and promote advertisements in a single place. The website features over one-hundred-thousand demo Facebook advertisements. This paper scraped the links of 281,090 available advertiser pages linked on this website. 
+The method section describes the data context, collection, and steps for processing and obtaining results by this study. The links to brand pages is pulled from Hootsuite and the Facebook posts are taken from the public Facebook pages. The data is pulled using Facebook's API. The image and text data are pre-processed in Python into different architectures of machine learning models. The data collection, pre-processing, and resulting model architecture is described in the following section.
 
-\subsubsection{Data Origin}
+\subsection{Data Context and Origin}
+The research obtains the Facebook post URLs from AdEspresso. Hootsuite owns the website, a social media management platform created in 2008 (https://www.hootsuite.com). The company manages content for many platforms, including Twitter, Facebook, Instagram, LinkedIn, Google+, and YouTube (Hootsuite). The AdEspresso website provides a management platform for social media advertising. It allows marketers to create and promote advertisements in a single place. The website features over one-hundred-thousand demo Facebook advertisements. This paper scraped the links of 281,090 available advertiser pages linked on this website. 
 
 \begin{figure}
     \includegraphics[width=\columnwidth]{images/Posts_Per_Page_Histogram.png}
@@ -94,32 +99,10 @@ The research obtains the Facebook post URLs from AdEspresso. Hootsuite owns the 
     \label{fig:histogram_posts_scraped}
 \end{figure}
 
-
 \subsubsection{Data Collection}
 The researchers created a Python web scraper to crawl Facebook pages via the Facebook Graph API, a publicly available API. The top 1000 posts are scraped from each Facebook page, though most pages contain fewer than 100 posts. Figure-\ref{fig:histogram_posts_scraped} shows a histogram of the number of posts scraped from each Facebook page. In total, the study collected 366,415 Facebook posts and 1,305,375 million comments.  
 
-\begin{figure}
-\centering
-\includegraphics[width=\columnwidth]{images/Comment_Count_Prediction_vs_Actual.png}
-\caption{Actual vs Predicted Comment Count Histogram}
-\label{comment_count_histogram}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\columnwidth]{images/Share_Count_Prediction_vs_Actual.png}
-\caption{Actual vs Predicted Share Count Histogram}
-\label{share_count_histogram}
-\end{figure}
-
 The study also analyzed comment sentiment scores for each post. This study made use of VADER, a parsimonious rule-based model for Sentiment Analysis of Social Media Text \cite{Gilbert} for its sentiment analysis. The sentiment analysis output was a score between -1 and 1, where 0 denotes neutral sentiment, -1 is very negative, and +1 a very positive sentiment. Posts with comments were given a sentiment score by averaging the sentiment score from all its comments.  Figure-\ref{comment_sentiment_histogram} shows a histogram of comment sentiments for the Facebook posts.
-
-\begin{figure}
-\centering
-\includegraphics[width=\columnwidth]{images/Sentiment_Prediction_vs_Actual.png}
-\caption{Actual vs Predicted Comment Sentiment Histogram}
-\label{comment_sentiment_histogram}
-\end{figure}
 
 \subsubsection{Image Processing}
 Images are inherently highly dimensional. In order to reduce the number of features created by using images as part of our machine learning algorithm, we took several steps to reduce each image's dimensionality. First, we used principal component analysis. The number of dimensions to keep was set at 20 since the image variance is lower after denoising, reducing noise and data size. Image denoising can further reduce noise. Second, the research applied a Gaussian blur with a standard deviation of five to each image, which applies image blurring and emphasizes edges. Dilation and erosion are also applied to the image to remove noise in the edge space.
@@ -162,6 +145,7 @@ Related work includes sections on keypoint descriptors and neural networks. CNNs
 
 \subsection{Combined Models}
 The combined model concatenates both text-based NN and image-based CNN. The Keras API includes the ability to combine models. The API concatenated each model after the CNN flattened. At this point, the CNN portion has finished, and the remaining eight nodes form a NN. At the point of model concatenation, the NN also decreased to eight nodes. The result was a NN layer of sixteen densely connected nodes—the sixteen-node NN connected to a final output node.    
+
 \subsection{Application}
 The research applied the models in a real-world application. The application explored a use case to demonstrate the model's ability to choose which two advertisements would have the best performance. The research only compares advertisements with a significant value difference, where a significant difference is anything more than one standard deviation, as defined by the data distribution. The research found that models are unlikely able to differentiate between advertisements with similar performances. The combined model performs all predictions since it performed best across all metrics. Moreover, the application is the most useful if it can detect poor-performing and best-performing advertisements.  
 
@@ -175,6 +159,28 @@ The data correlations were sensible. The metrics for comment count and share cou
 Linear models also discovered a correlation between comment count and comment sentiment. Posts that receive many comments are likely to receive positive comments. We can infer that happier users comment at a higher rate, or positive content elicits more comments, which are also likely to be positive. Interestingly, comment count was not correlated to share count. One might infer that just because a post draws attention and comments does not mean they are likely to get shared. It might also mean that happier content, which receives more comments, does not cause users to share that content. Page metrics are also not correlated with comment count, i.e., a famous or less popular page did not necessarily generate more or fewer comments. The study uses the lack of correlation to justify comparing posts across Facebook pages.
 
 \subsection{Metric Prediction}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{images/Comment_Count_Prediction_vs_Actual.png}
+\caption{Actual vs Predicted Comment Count Histogram}
+\label{comment_count_histogram}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{images/Share_Count_Prediction_vs_Actual.png}
+\caption{Actual vs Predicted Share Count Histogram}
+\label{share_count_histogram}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{images/Sentiment_Prediction_vs_Actual.png}
+\caption{Actual vs Predicted Comment Sentiment Histogram}
+\label{comment_sentiment_histogram}
+\end{figure}
+
 The data correlations were sensible. The metrics for comment count and share count are correlated. This correlation is sensible, considering that users talk about shared content. Moreover, the shared content is interesting. Shared content also creates more interesting content. Linear models also found a correlation between fan count and share count. The more fans a page has, the more opportunities exist for people to share the content. Alternatively, people are fans of the page because they like the content and if people like content, they are more likely to share it. 
 
 Linear models also discovered a correlation between comment count and comment sentiment. Posts that receive many comments are likely to receive positive comments. We can infer that happier users comment at a higher rate, or positive content elicits more comments, which are also likely to be positive. Interestingly, comment count was not correlated to share count. One might infer that just because a post draws attention and comments does not mean they are likely to get shared. It might also mean that happier content, which receives more comments, does not cause users to share that content. Page metrics are also not correlated with comment count, i.e., a famous or less popular page did not necessarily generate more or fewer comments. The study uses the lack of correlation to justify comparing posts across Facebook pages.
@@ -196,12 +202,17 @@ Image-based models performed better than text-based models on all metrics, likel
 In light of the newly created data, there are no other baseline measures for what constitutes good model performance. One goal was to produce a model that performed better than random guessing. Random guessing alone is not representative of the data. A better guess is based on the input's distribution. A good random guess would consider the data's value at each point along with its distribution. Such a distribution would weigh each value by the frequency of data. This calculation is the expected value. For a normal distribution, the expected value is equal to the mean. Also, each output in the research resembles the normal distribution after a log transformation. If the model always predicts the mean, the MSE is equal to the data's variance. The variance is a squared order of the data's distance from the mean. The MSE is also a squared order of the model's prediction from the actual value. Producing a model whose loss is below the variance is a general measure of demonstrating the model is doing a significant amount of learning. Fortunately, the combined model's performance was always much lower than each output data's variance.
 
 \subsection{Study Contributions}
-The study demonstrates the improved model performance by combining image and text data when predicting user behavior on social media.  The research found that machine learning with both image and text data results in enormous improvements for predicting comment sentiment.  This serves as a benchmark for predicting user sentiments on social media.  It also provides a comparison between text-based, image-based, and combined text and image model performance. The code is available on GitHub for future studies.
 
-The research serves as a case study for combining text and image data. The study provides performant model hyperparameters in model depth, dropout rate, and word vector sizes.  The expected results will be generalizable to other studies and encourage others to explore understanding advertisement performance on social media.
+The research found that machine learning with both image and text data results in enormous improvements for predicting comment sentiment.
+
+The research serves as a case study for combining text and image data.
+
+The study provides performant model hyperparameters in model depth, dropout rate, and word vector sizes.
+
+The expected results will be generalizable to other studies and encourage others to explore understanding advertisement performance on social media.
 
 \subsection{Addressing Research Questions}
-This research question asks if a machine learning model, trained with text and image data, can predict user interaction on social media.  The research found that models utilizing image and text data outperformed their single-data type counterparts.  The research questions also asked how well the models can predict user interaction in terms of MSE and variance.  Each machine learning model achieved a MSE below the data variance, demonstrating a measure of model success learning user behavior. In addition, the combined model predicts which of two advertisements would evoke the more positive comment sentiment 93\% of the time, further confirming the model's successful performance.
+%This research question asks if a machine learning model, trained with text and image data, can predict user interaction on social media. The research found that models utilizing image and text data outperformed their single-data type counterparts.  The research questions also asked how well the models can predict user interaction in terms of MSE and variance.  Each machine learning model achieved a MSE below the data variance, demonstrating a measure of model success learning user behavior. In addition, the combined model predicts which of two advertisements would evoke the more positive comment sentiment 93\% of the time, further confirming the model's successful performance.
 
 \subsection{Limitations}
 Model training time was a limitation. There were twelve models. Each model requires many hours of training time. Machines with GPUs can only train one model at a time, so this process was very time-consuming. Time was not sufficient to train all models thoroughly. With more time, the models could have reached lower losses.  One observation is that the models generally begin to overtrain after 30 epochs. More regularization might mitigate this problem. Such mitigations would likely lead to increased model performance. Heuristics dictated for hyperparameters and batch sizes. 
