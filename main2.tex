@@ -87,10 +87,11 @@ The question explores the existing gap in using a machine learning architecture 
 Existing studies use images in CNN models to predict visual sentiment \cite{Sengalin2017, Xu2014}. If a relationship exists between visual sentiment and user response, we expect image-based CNNs to perform well at predicting user sentiment. Nevertheless, text-data provides a great deal of the post's content. It is worthwhile to juxtapose how well text-based and image-based models compare. This research question will examine the ability for image-based models to predict the sentiment of users, via their comments.
 
 \section{Methods}
-
 The method section describes the data context, collection, and steps for processing and obtaining results by this study. The links to brand pages is pulled from Hootsuite and the Facebook posts are taken from the public Facebook pages. The data is pulled using Facebook's API. The image and text data are pre-processed in Python into different architectures of machine learning models. The data collection, pre-processing, and resulting model architecture is described in the following section.
 
 \subsection{Data Context and Origin}
+The research studies Facebook posts on company Brand pages. These brand pages consist of Firm-Generated Content that users may interact with. Brand pages are often public company pages where brand-content is posted in order to influence user behavior and often for the purpose of building the company's brand. Given the public nature of these pages they are an easier source of advertising data that can easily be scraped from the Facebook. The study looked at public Brand pages and examined the posts and the resulting user response.
+% here
 The research obtains the Facebook post URLs from AdEspresso. Hootsuite owns the website, a social media management platform created in 2008 (https://www.hootsuite.com). The company manages content for many platforms, including Twitter, Facebook, Instagram, LinkedIn, Google+, and YouTube (Hootsuite). The AdEspresso website provides a management platform for social media advertising. It allows marketers to create and promote advertisements in a single place. The website features over one-hundred-thousand demo Facebook advertisements. This paper scraped the links of 281,090 available advertiser pages linked on this website. 
 
 \begin{figure}
