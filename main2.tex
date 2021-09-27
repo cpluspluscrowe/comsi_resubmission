@@ -89,10 +89,10 @@ Existing studies use images in CNN models to predict visual sentiment \cite{Seng
 \section{Methods}
 The method section describes the data context, collection, and steps for processing and obtaining results by this study. The links to brand pages is pulled from Hootsuite and the Facebook posts are taken from the public Facebook pages. The data is pulled using Facebook's API. The image and text data are pre-processed in Python into different architectures of machine learning models. The data collection, pre-processing, and resulting model architecture is described in the following section.
 
-\subsection{Data Context and Origin}
+\subsection{Data}
 The research studies Facebook posts on company Brand pages. These brand pages consist of Firm-Generated Content that users may interact with. Brand pages are often public company pages where brand-content is posted in order to influence user behavior and often for the purpose of building the company's brand. Given the public nature of these pages they are an easier source of advertising data that can easily be scraped from the Facebook. The study looked at public Brand pages and examined the posts and the resulting user response.
-% here
-The research obtains the Facebook post URLs from AdEspresso. Hootsuite owns the website, a social media management platform created in 2008 (https://www.hootsuite.com). The company manages content for many platforms, including Twitter, Facebook, Instagram, LinkedIn, Google+, and YouTube (Hootsuite). The AdEspresso website provides a management platform for social media advertising. It allows marketers to create and promote advertisements in a single place. The website features over one-hundred-thousand demo Facebook advertisements. This paper scraped the links of 281,090 available advertiser pages linked on this website. 
+
+The research obtains a set of brand URLs to Facebook from AdEspresso. Hootsuite owns the website and is a social media management platform created in 2008 (https://www.hootsuite.com). The website features over one-hundred-thousand demo Facebook advertisements. This paper scraped the links of 281,090 available advertiser pages linked on this website. This research discovered URLs to public company-brand pages on Facebook by using the AdEspresso website.
 
 \begin{figure}
     \includegraphics[width=\columnwidth]{images/Posts_Per_Page_Histogram.png}
@@ -100,9 +100,10 @@ The research obtains the Facebook post URLs from AdEspresso. Hootsuite owns the 
     \label{fig:histogram_posts_scraped}
 \end{figure}
 
-\subsubsection{Data Collection}
-The researchers created a Python web scraper to crawl Facebook pages via the Facebook Graph API, a publicly available API. The top 1000 posts are scraped from each Facebook page, though most pages contain fewer than 100 posts. Figure-\ref{fig:histogram_posts_scraped} shows a histogram of the number of posts scraped from each Facebook page. In total, the study collected 366,415 Facebook posts and 1,305,375 million comments.  
+%\subsubsection{Data Collection}
+A Python web scraper crawls the Facebook brand pages via the Facebook Graph API, which is a public-use API. This research scrapes the most recent one-thousand posts from each brand page, though many brand pages contain fewer than one-hundred posts. The histogram for the number of posts scraped per brand page are shown in Figure \ref{fig:histogram_posts_scraped}. In total, the study collected 366,415 Facebook posts and 1,305,375 million comments. This study collects a great deal of brand-page data via more than 350k Facebook posts and 1.3 million comments.
 
+% here
 The study also analyzed comment sentiment scores for each post. This study made use of VADER, a parsimonious rule-based model for Sentiment Analysis of Social Media Text \cite{Gilbert} for its sentiment analysis. The sentiment analysis output was a score between -1 and 1, where 0 denotes neutral sentiment, -1 is very negative, and +1 a very positive sentiment. Posts with comments were given a sentiment score by averaging the sentiment score from all its comments.  Figure-\ref{comment_sentiment_histogram} shows a histogram of comment sentiments for the Facebook posts.
 
 \subsubsection{Image Processing}
