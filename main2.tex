@@ -223,7 +223,11 @@ The expected results will be generalizable to other studies and encourage others
 The research demonstrates that ml models trained on both text and image data outperform single-data type models. The methodology trains four model architectures on three user metrics.  Across all metrics, architectures using both image and text data outperform single data type models. The result demonstrates that architectures exist for combined models that improve predictions for social media data.
 
 \subsection{Limitations}
-Model training time was a limitation. There were twelve models. Each model requires many hours of training time. Machines with GPUs can only train one model at a time, so this process was very time-consuming. Time was not sufficient to train all models thoroughly. With more time, the models could have reached lower losses.  One observation is that the models generally begin to overtrain after 30 epochs. More regularization might mitigate this problem. Such mitigations would likely lead to increased model performance. Heuristics dictated for hyperparameters and batch sizes. 
+% existing models were not publicly available.
+
+The study is not able to acquire existing ml models and study data concerning single-data type models. The data and models are not for public use. The result is that this study made use of existing, high-performing model architectures for both CNN and NN. This allows the study to ensure its results are repeatable. Using pre-existing model architectures also ensures that existing research's best practices for ml models and architectures are included within this study. The study is not able to show the improved benefit of the combined model on pre-existing study data or models, however, the study makes use of well-known architectures to ensure model performance and study replicability. 
+
+
 
 \subsection{Future Work}
 Given that share count and comment-sentiment have a coefficient of determination over 0.4, the share count model is likely a good input for predicting comment sentiment. Future research can incorporate this input to improve future models when predicting user behavior. In addition, future research could overcome existing Facebook API scraping problems. Another avenue for research is collecting comment sentiments for the 350k Facebook posts and using the new data to train better models.  Moreover, future work can incorporate the combined text and image model with the image-based CNN and text-based NN into an ensemble model to see if it improves performance.
