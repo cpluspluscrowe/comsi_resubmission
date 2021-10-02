@@ -217,8 +217,10 @@ The study provides performant model hyperparameters in model depth, dropout rate
 
 The expected results will be generalizable to other studies and encourage others to explore understanding advertisement performance on social media.
 
-\subsection{Addressing Research Questions}
-%This research question asks if a machine learning model, trained with text and image data, can predict user interaction on social media. The research found that models utilizing image and text data outperformed their single-data type counterparts.  The research questions also asked how well the models can predict user interaction in terms of MSE and variance.  Each machine learning model achieved a MSE below the data variance, demonstrating a measure of model success learning user behavior. In addition, the combined model predicts which of two advertisements would evoke the more positive comment sentiment 93\% of the time, further confirming the model's successful performance.
+%\subsection{Addressing Research Questions}
+% more like a conclusion section
+
+The research demonstrates that ml models trained on both text and image data outperform single-data type models. The methodology trains four model architectures on three user metrics.  Across all metrics, architectures using both image and text data outperform single data type models. The result demonstrates that architectures exist for combined models that improve predictions for social media data.
 
 \subsection{Limitations}
 Model training time was a limitation. There were twelve models. Each model requires many hours of training time. Machines with GPUs can only train one model at a time, so this process was very time-consuming. Time was not sufficient to train all models thoroughly. With more time, the models could have reached lower losses.  One observation is that the models generally begin to overtrain after 30 epochs. More regularization might mitigate this problem. Such mitigations would likely lead to increased model performance. Heuristics dictated for hyperparameters and batch sizes. 
