@@ -121,10 +121,12 @@ The collected data consists of two types of data: text and image data. The text 
 
 The machine learning models are separated into three groups, corresponding to the types of input data. The three types of input data were text-only data, image data, and input consisting of text and image data. Each input type had a corresponding machine learning architecture for training. For example, text data train a NN, images train on a CNN, and the combination of text and images train on a combined NN and CNN model. Thus, three input types for three types of models make a total of nine models.
 
-\section{Results}
-Our machine learning algorithm's output was training against each post's comment count, share count, and comment sentiment. The experiments use different sized data sets.  Comment and share count metrics utilized 366,415 posts in training and testing. Comment sentiment experiments included 201,215 posts. The comment sentiment data set was smaller due to limitations in the Facebook API.
+Given the study's data contains continuous variables, such as the count of shares, comments, and range of comment sentiment from -1 to 1, the study uses regression to train its ml models. The study uses Mean Squared Error (MSE) as its loss function for the machine learning models, which heavily penalizes values straying from the observation. The result are models with a smaller prediction range but which is able to predict which posts will outperform others. The study trains regression ml models that learn to predict if a post will perform well on social media.
 
-The Python library Keras trained the machine learning models. The models predict continuous variables, which requires the model to perform regression. Keras provides many loss functions for regression.  The research's ultimate goal is to differentiate between ad performance, so the researchers chose a loss function that more heavily penalizes significant differences in user interaction, which is accomplished by choosing the Mean Squared Error (MSE) loss function since it has a squared loss penalty for any differences.  The combined model outperformed both the text-only and the image-only models for predicting all social media metrics.  Figure-\ref{mse_ratios} displays results as a ratio to the combined model's loss. 
+\section{Results}
+The result dataset consists of 366,415 posts. These posts contain comment count, share count, and comment sentiment data. The research subsets this data for training on user comment sentiment, for which it uses 201,215 posts. Of those posts, the study collected and trained on 1,305,375 million user comments. The study collected many Facebook brand posts and many more user comments.
+
+The results display the MSE for the twelve ml-models. The twelve models use a combination of different data types as input, including only-text, only-video, and a combination of text and video data. The relative MSE for the twelve models is shown in Table \ref{mse_ratios}. The combined models include a decision tree and an ensemble CNN and NN. The study provides relative MSE performance across both different architectures and combinations of input data types.
 
 \begin{table}[]
 \centering
@@ -134,14 +136,34 @@ Share Count       & 3.44 & 1.01 & 2.58 & 1.00 \\
 Comment Count     & 1.02 & 1.01 & 1.29 & 1.00 \\
 Comment Sentiment & 1.42 & 1.14 & 4.20 & 1.00
 \end{tabular}
-\caption{\label{tab:widgets}Model Mean Squared Error Reported as a Ratio to the Best Model's Performance}
+\caption{\label{mse_ratios}Model Mean Squared Error Reported as a Ratio to the Best Model's Performance}
 \end{table}
+
+% I feel like this goes in the discussion
+%The combined model outperformed both the text-only and the image-only models for predicting all social media metrics.
+
+\subsection{Brand Page Analysis}
+
+% We spent time investigating stats for each brand page
+
+The research analyzed brand page statistics, which provide aggregated page data. Brand page statistics are useful to understand large patterns across all advertiser pages. There were three variables worth noting: the number of users talking about a brand page, the fan count, and the comment count. The research found an adjusted R-Squared of 0.22 beteen talking about count and share count and 0.38 between talking about count and fan count. An initial analysis of brand pages found that the count of users talking about a brand page is correlated with share count and fan count.
+
+%talking about vs share count
+%talking about vs fan count
+%comment sentiment and comment count
+
+%This research created linear models to better understand the data before creating machine learning models. R scripts generated the linear models. The reported numbers are the coefficient of determination of the linear models. The linear models found an $R^2$ of 0.22 between talking about count and share count. The analysis found an $R^2$ of 0.38 between the fan count and talking about the count. The most significant result was an $R^2$ of 0.44 between comment sentiment and comment count. An $R^2$ of 0.38 and 0.44 are significant enough to create multicollinearity issues in machine learning features, which means that best practice avoids including two strongly correlated features. In addition, it is best practice to avoid correlated variables because they can negatively affect model weights by giving double the signal due to variable correlation. 
+
+Comment count and share count are correlated, which implies that posts which are shared more often also receive a greater number of comments. The relationship between comment count and share count is senisble since users will share content they find interesting to talk about. The same correlation is also seen with fan count, which makes intuitive sense since more users following a page results in a larger number of user interactions. Alternatively, people are fans of the page because they like the content and if people like content, they are more likely to share it.
+
+There also exists a higher correlation between comment count and comment sentiment. Posts that receive many comments are likely to receive positive comments. We can infer that happier users comment at a higher rate or positive content elicits more comments. In turn, one might expect that highly positive posts might elicit positive comments. Posts that receive many comments tend to contain an overall more positive comment sentiment.
+
+Comment count is not correlated with share count. This infers that posts with many comments do not necessitate users share the post. This might occur on interesting content that is less relevant to other users. Otherwise, some types of content might exhibit different share rates. The study found little relationship between comment count and share counts.
+
+Popular pages do not generate more comments per post. This might capture a phenomenon where brands receive many followers but produce less interesting content. At the same time, some brands have entire social media teams and produce higher quality content, which in turn generates a lot of engagement. Generating many followers is not equivalent to generating engaged users. Many brands have many followers but generate very little user engagement on their posts.
 
 \subsubsection{Model Performance}
 The combined model best predicted all user behavior metrics. Each machine learning model had its lowest MSE predicting for share count. The CNNs achieved a lower MSE than the NN on all metrics. Moreover, the CNN performance is best on data exhibiting a higher variance. Figure \ref{share_count_histogram} and \ref{comment_sentiment_histogram} show the predicted vs actual distribution for the combined model.
-
-\subsection{Linear Models of Scraped Data}
-This research created linear models to better understand the data before creating machine learning models. R scripts generated the linear models. The reported numbers are the coefficient of determination of the linear models. The linear models found an $R^2$ of 0.22 between talking about count and share count. The analysis found an $R^2$ of 0.38 between the fan count and talking about the count. The most significant result was an $R^2$ of 0.44 between comment sentiment and comment count. An $R^2$ of 0.38 and 0.44 are significant enough to create multicollinearity issues in machine learning features, which means that best practice avoids including two strongly correlated features. In addition, it is best practice to avoid correlated variables because they can negatively affect model weights by giving double the signal due to variable correlation. 
 
 \subsection{Text-based NN Models}
 This research utilized Keras to create, train, and test this model. Initial training experimented with 2-8 hidden layers. The final model utilized two hidden layers, as two layers performed similarly to eight hidden layers. This research initially experimented with word vector sizes from 1k-400k. Good performance and fast training occurred with a word vector size of 10k. The NN models used 10k as the word vector size.
@@ -158,11 +180,6 @@ The research applied the models in a real-world application. The application exp
 The scenario is predicting user engagement for advertisements. The scenario pairs Facebook posts together. The model predicts user engagement for all posts. The program scores how often the model correctly predicted for greater user engagement. The program reports the result for each metric. The score is the number of correct predictions over incorrect predictions. This research compared the score with a random model. The random model produced the correct answer 50\% of the time. The combined model scored 93\% for comment sentiment, 65\% for comment count, and 63\% for share count.
 
 The model performance shows its applicability in the real world.  Platforms could employ the models to aid advertisers in choosing the best performing advertisement before paying to advertise it on social media. The model can tell advertisers which ads would perform best on the platform, which allows advertisers have their ads vetted. The vetting could prevent advertisers from spending large amounts of money showing worse ads. Moreover, the vetting would allow advertisers to only show ads that will perform best. In the context of billions, 93\%, 65\%, and 63\% accuracy is a substantial monetary difference.
-
-\subsection{Linear Models}
-The data correlations were sensible. The metrics for comment count and share count are correlated. This correlation is sensible, considering that users talk about shared content. Moreover, the shared content is interesting. Shared content also creates more interesting content. Linear models also found a correlation between fan count and share count. The more fans a page has, the more opportunities exist for people to share the content. Alternatively, people are fans of the page because they like the content and if people like content, they are more likely to share it. 
-
-Linear models also discovered a correlation between comment count and comment sentiment. Posts that receive many comments are likely to receive positive comments. We can infer that happier users comment at a higher rate, or positive content elicits more comments, which are also likely to be positive. Interestingly, comment count was not correlated to share count. One might infer that just because a post draws attention and comments does not mean they are likely to get shared. It might also mean that happier content, which receives more comments, does not cause users to share that content. Page metrics are also not correlated with comment count, i.e., a famous or less popular page did not necessarily generate more or fewer comments. The study uses the lack of correlation to justify comparing posts across Facebook pages.
 
 \subsection{Metric Prediction}
 
@@ -204,6 +221,8 @@ Image-based models performed better than text-based models on all metrics, likel
 
 %Later modeling compares the results against a random model. CNN with image inputs was more accurate than text-based NN.  This seems to say that images influence a large degree of the comment sentiment. 
 
+The study found a relation in the propensity to share a post and the resulting comment sentiment. Posts that reciprocate positive sentiment are more likely to be shared. Brands should consider how to increase user sentiment, which will result in users also sharing the post more frequently. The study found a strong relationship between user comment sentiment and the propensity to share the post.
+
 \subsection{Model Loss and Outperforming Random Guessing}
 In light of the newly created data, there are no other baseline measures for what constitutes good model performance. One goal was to produce a model that performed better than random guessing. Random guessing alone is not representative of the data. A better guess is based on the input's distribution. A good random guess would consider the data's value at each point along with its distribution. Such a distribution would weigh each value by the frequency of data. This calculation is the expected value. For a normal distribution, the expected value is equal to the mean. Also, each output in the research resembles the normal distribution after a log transformation. If the model always predicts the mean, the MSE is equal to the data's variance. The variance is a squared order of the data's distance from the mean. The MSE is also a squared order of the model's prediction from the actual value. Producing a model whose loss is below the variance is a general measure of demonstrating the model is doing a significant amount of learning. Fortunately, the combined model's performance was always much lower than each output data's variance.
 
@@ -222,14 +241,11 @@ The expected results will be generalizable to other studies and encourage others
 
 The research demonstrates that ml models trained on both text and image data outperform single-data type models. The methodology trains four model architectures on three user metrics.  Across all metrics, architectures using both image and text data outperform single data type models. The result demonstrates that architectures exist for combined models that improve predictions for social media data.
 
-\subsection{Limitations}
+\subsection{Limitations and Future Work}
 % existing models were not publicly available.
 
 The study is not able to acquire existing ml models and study data concerning single-data type models. The data and models are not for public use. The result is that this study made use of existing, high-performing model architectures for both CNN and NN. This allows the study to ensure its results are repeatable. Using pre-existing model architectures also ensures that existing research's best practices for ml models and architectures are included within this study. The study is not able to show the improved benefit of the combined model on pre-existing study data or models, however, the study makes use of well-known architectures to ensure model performance and study replicability. 
 
-
-
-\subsection{Future Work}
 Given that share count and comment-sentiment have a coefficient of determination over 0.4, the share count model is likely a good input for predicting comment sentiment. Future research can incorporate this input to improve future models when predicting user behavior. In addition, future research could overcome existing Facebook API scraping problems. Another avenue for research is collecting comment sentiments for the 350k Facebook posts and using the new data to train better models.  Moreover, future work can incorporate the combined text and image model with the image-based CNN and text-based NN into an ensemble model to see if it improves performance.
 
 The models created from this research could generate data to train a generative model.  The generative model could transform images and text into advertisements that should generate more user interaction.  The transformed and original advertisements could both be shown on social media and their user interactions compared. Thus, the study might demonstrate that generative models generate and improve existing advertising content.
