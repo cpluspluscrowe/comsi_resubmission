@@ -1,0 +1,116 @@
+\chapter{Bibliography}
+Ahmadi, R. et al. (2013) 'Survey of image denoising techniques', Life Science Journal, 10(1), pp. 753–755. doi: 10.1.1.107.1823.
+
+Aittala, M., Aila, T. and Lehtinen, J. (2016) 'Reflectance modeling by neural texture synthesis', ACM Transactions on Graphics, 35(4), pp. 1–13. doi: 10.1145/2897824.2925917.
+
+Antonio, G. and Sujit, P. (2017) Deep Learning With Keras. Packt Publishing.
+
+Azizian, S. et al. (2017) 'Identifying Personal Messages: A Step towards Product/Service Review and Opinion Mining', \textit{ International Conference on Computational Science and Computational Intelligence }, (January 2018).
+
+Buduma, N. (2015) Fundamentals of Deep Learning, CEUR Workshop Proceedings. doi: 10.1017/CBO9781107415324.004.
+
+Casari, A. (2017) 'Mastering Feature Engineering Principles and Techniques for Data Scientists'. Oreilly & Associates Inc.
+
+Chen, T. et al. (2014) 'DeepSentiBank: Visual Sentiment Concept Classification with Deep Convolutional Neural Networks'. Available at: \url{http://arxiv.org/abs/1410.8586}.
+
+"Click-Through Rate Prediction." Kaggle Competition (2015), \url{https://www.kaggle.com/c/avazu-ctr-prediction}.
+
+Chu, T. C. et al. (1985) 'Applications of Digital . Image-Correlation Techniques to Experimental Mechanics', (August 2015). doi: 10.1007/BF02325092.
+
+Confessore, Nicholas. “Cambridge Analytica and Facebook: The Scandal and the Fallout So Far.” The New York Times, The New York Times, 4 Apr. 2018, \url{www.nytimes.com/2018/04/04/us/politics/cambridge-analytica-scandal-fallout.html}.
+
+Derpanis, K. G. (2004) 'The Harris Corner Detector', pp. 2–3.
+
+Dwivedi, Y. K., Kapoor, K. K. and Chen, H. (2015) 'Social media marketing and advertising', The Marketing Review, 15(3), pp. 289–309. doi: 10.1362/146934715X14441363377999.
+
+Facebook's Growth Is Fueled by Mobile Ads | Statistic. (n.d.). Retrieved from \url{https://www.statista.com/chart/2496/facebook-revenue-by-segment/}
+
+Fisher, T. (2009) 'ROI in social media: A look at the arguments', \textit{Journal of Database Marketing and Customer Strategy Management}, 16(3), pp. 189–195.\newline doi: 10.1057/dbm.2009.16.
+
+'Romero Nuria' (2011), 24, pp. 145–151. doi: 10.1108/08880451111169223.
+
+Gao, B. et al. (2005) 'Web image clustering by consistent utilization of visual features and surrounding texts', \textit{Proceedings of the 13th annual ACM international conference on Multimedia - MULTIMEDIA} '05, p. 112. doi: 10.1145/1101149.1101167.
+
+Gelli, F. et al. (2015) 'Image Popularity Prediction in Social Media Using Sentiment and Context Features', \textit{Proceedings of the 23rd ACM international conference on Multimedia} - MM '15, pp. 907–910. doi: 10.1145/2733373.2806361.
+
+Gramlich, John. “5 Facts about Americans and Facebook.” Pew Research Center, Pew Research Center, 10 Apr. 2018, www.pewresearch.org/fact-tank/2018/04/10/5-facts-about-americans-and-facebook/.
+
+Graph API Engagement - Documentation. (n.d.). Retrieved from \url{https://developers.facebook.com/docs/graph-api/reference/engagement}
+
+Hassner, G. L. and T. (2015) 'Age and Gender Classification using Convolutional Neural Networks', \textit{2008 8th IEEE International Conference on Automatic Face and Gesture Recognition}, FG 2008, 24(3), pp. 2622–2629. doi: 10.1109/AFGR.2008.4813314.
+
+Hoffman, D. D. L. D. L. and Fodor, M. (2010) 'Can You Measure the ROI of Your Social Media Marketing?', MIT Sloan Management Review, 52(1), pp. 41–49. doi: 10.1287/mksc.1120.0768.
+
+Hootsuite Media Inc. “Social Media Marketing & Management Dashboard.” Hootsuite, \url{hootsuite.com/}.2018.08.01
+
+VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text
+(by C.J. Hutto and Eric Gilbert)
+\textit{Eighth International Conference on Weblogs and Social Media (ICWSM-14)}. Ann Arbor, MI, June 2014.
+
+Jan Erik Solem (2012) 'Programming Computer Vision with Python', Programming Computer Vision with Python, p. 264. doi: 10.1017/CBO9781107415324.004.
+
+Kaehler, Adrian, and Gary R. Bradski. Learning OpenCV 3: Computer Vision in C++ with the OpenCV Library. O'Reilly Media, 2017.
+
+Kanan, C. and Cottrell, G. W. (2012) 'Color-to-grayscale: Does the method matter in image recognition?', PLoS ONE, 7(1). doi: 10.1371/journal.pone.0029740.
+
+“Keras: The Python Deep Learning Library.” Keras Documentation, keras.io/.
+
+Khosla, A., Das Sarma, A. and Hamid, R. (2014) 'What Makes an Image Popular ?', \textit{Proceedings of the 23rd International Conference on World Wide Web}, pp. 867--876. doi: 10.1145/2566486.2567996.
+
+Krizhevsky, A., Sutskever, I. and Hinton, G. E. (2012) 'ImageNet Classification with Deep Convolutional Neural Networks', Advances In Neural Information Processing Systems, pp. 1–9. doi: \url{http://dx.doi.org/10.1016/j.protcy.2014.09.007}.
+
+Li, C. et al. (2015) 'Click-through Prediction for Advertising in Twitter Timeline', \textit{Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining} - KDD '15, pp. 1959–1968. doi: 10.1145/2783258.2788582.
+
+Li, Y. et al. (2017) 'Diversified Texture Synthesis with Feed-forward Networks'. doi: 10.1109/CVPR.2017.36.
+
+
+
+Liu, B. (2012) 'Sentiment Analysis and Opinion Mining', (May), pp. 1–108. \newline doi: 10.2200/S00416ED1V01Y201204HLT016.
+
+Lowe, D. G. (2004) 'Distinctive image features from scale invariant keypoints', \textit{International Journal of Computer Vision}, 60, pp. 91–11020042. doi: 
+\url{http://dx.doi.org/10.1023/B:VISI.0000029664.99615.94}.
+Mandhyani, J. et al. (2017) 'Image Sentiment Analysis', \textit{International Journal of Engineering Science and Computing}, 7(2), pp. 4566–4569.
+
+Morgan, R. and Garigl, R. (2015) Natural language processing with JAVA, Endeavour. doi: 10.1016/0160-9327(95)98888-M.
+
+Ohsawa, S. and Matsuo, Y. (2013) 'Like Prediction: Modeling Like Counts by Bridging Facebook Pages with Linked Data', \textit{Proceedings of the 22Nd International Conference on World Wide Web Companion}, pp. 541–548. doi: 10.1145/2487788.2487992.
+
+Distribution-of-googles-revenues-by-source. Google: Ad revenue 2001-2017. Retrieved from \url{https://www.statista.com/statistics/266249/advertising-revenue-of-google/}
+
+Patterson, J. and Gibson, A. (2017) Deep Learning: A Practitioner's Approach, O'Reilly Media. doi: 10.1016/B978-0-12-391420-0.09987-X.
+
+Poria, S. et al. (2016) 'A Deeper Look into Sarcastic Tweets Using Deep Convolutional Neural Networks'. Available at: \url{http://arxiv.org/abs/1610.08815}.
+
+Poushter, J., Bishop, C., & Chwe, H. (2018, June 19). Social Media Use Continues to Rise in Developing Countries but Plateaus Across Developed Ones. Retrieved from \url{http://www.pewglobal.org/2018/06/19/social-media-use-continues-to-rise-in-developing-countries-but-plateaus-across-developed-ones}.
+
+Radim \v Reh\r u\v rek and Petr Sojka (2010) 'Software Framework for Topic Modelling with Large Corpora'
+,Proceedings of the LREC 2010 Workshop on New Challenges for NLP Frameworks. ELRA. p. 45--50.
+
+Schacht, J., Hall, M. and Chorley, M. (2015) 'Tweet if you will – the real question is , who do you influence?', (June). doi: 10.1145/2786451.2786923.
+
+Segalin, C., Cheng, D. S. and Cristani, M. (2017) 'Social profiling through image understanding: Personality inference using convolutional neural networks', Computer Vision and Image Understanding. Academic Press, 156, pp. 34–50. doi: 10.1016/J.CVIU.2016.10.013.
+Tang, Y. and Hinton, G. (no date) 'Robust Boltzmann Machines for Recognition and Denoising.(2012).pdf'.
+
+Shavitt, S., Lowrey, P. M. and Haefner, J. E. (1998) 'Public Attitudes Toward Advertising : More Favorabie Than You Might Think', \textit{Journal of Advertising Research}, 38(4), pp. 7–22. Available at: \url{https://www.researchgate.net/publication/247294509_Public_Attitudes_Toward_Advertising_More_Favorable_Than_You_Might_Think}.
+
+Smith, A., & Anderson, M. (2018, March 01). Social Media Use in 2018. Retrieved from \url{http://www.pewinternet.org/2018/03/01/social-media-use-in-2018/}
+
+Srivastava, N. et al. (2014) 'Dropout: A Simple Way to Prevent Neural Networks from Overfitting', \textit{Journal of Machine Learning Research}, 15, pp. 1929–1958. doi: 10.1214/12-AOS1000.
+
+Straton, N., Mukkamala, R. R. and Vatrapu, R. (2015) 'Big Social Data Analytics for Public Health : Predicting Facebook Post Performance using Artificial Neural Networks and Deep Learning'.
+
+Tiago, M. T. P. M. B. and Veríssimo, J. M. C. (2014) 'Digital marketing and social media: Why bother?', Business Horizons, 57(6), pp. 703–708. doi: 10.1016/j.bushor.2014.07.002.
+
+Wang, Y. et al. (2015) 'Unsupervised sentiment analysis for social media images', \textit{Proceedings of the 24th International Conference on Artificial Intelligence}, pp. 2378–2379. Available at: \url{https://arxiv.org/abs/1604.03489}.
+
+Xu, C. et al. (2014) 'Visual Sentiment Prediction with Deep Convolutional Neural Networks'. Available at: \url{http://arxiv.org/abs/1411.5731}.
+
+You, Q. et al. (2015) 'Robust Image Sentiment Analysis Using Progressively Trained and Domain Transferred Deep Networks', pp. 381–388. doi: 10.1145/2733373.2806284.
+
+Whitenack, Daniel, and Vipul Agrawal. Machine Learning With Go. Packt Publishing, 2017.
+
+Wright, E. et al. (2010) 'The Lasting Effects Of Social Media Trends On Advertising', \textit{Journal of Business & Economics Research (JBER)}, 8(11). doi: 10.19030/jber.v8i11.50.
+
+Shi, X. (2017). A Study on Factors Influencing the Click Through Rate , CTR , of Internet ads by the Charging Mode of CPM ( Cost Per Mile ) Based on Information Transfer.
+
+Zelinsky, A. (2009) 'Learning OpenCV. Computer Vision with the OpenCV Library', IEEE Robotics and Automation Magazine, p. 100. doi: 10.1109/MRA.2009.933612.

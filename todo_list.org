@@ -1,0 +1,22 @@
+** TODO Comsi Paper Queue   
+*** DONE - fix figure-?? references
+*** TODO - ensure the 350k facebook posts have a better context, also ensure it is in the right location
+- note this refers to the abstract's reference to 350k Facebook posts
+      
+*** TODO - user behavior needs to be more clearly defined
+*** TODO - add more of an overview for the process of combining models
+*** TODO - improve on writing clarity
+**** TODO - improve on the writing (go ahead and review and rewrite, it's been 3-4 
+*** TODO - make the research questions and contributions more clear
+**** TODO - contribution is less clear
+**** TODO   - make sure the technical contribution is clear too
+
+
+*** Tuesday
+**** DONE at the very least, let's first put these through grammarly for big mistakes?
+**** DONE - going through all passive instances in the paper and fixing them.
+**** TODO also need to change the paper's tense
+**** TODO change the table from a picture to a latex table.     
+- gonna start going through the paper for re-reads and address the above todos as they come up.
+  - would be great to get a lot of change by the next meeting.
+
