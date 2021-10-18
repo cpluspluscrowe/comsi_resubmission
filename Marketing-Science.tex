@@ -240,9 +240,6 @@ The study considers brand page variables and how it might affect user engagement
 Two brand page variables had correlations with user engagement: fan count and the number of users talking about a brand page. Unsurprisingly, these two variables are highly correlated with one another with a 0.38 adjusted r-squared. Concerning user engagement, the variable most correlated with user engagement is 'talking about count.' When users talk about a particular brand, they are more likely to share (0.22) its posts. The highest correlation is between comment count and comment sentiment, which means that posts which elicit positive user comments also receive a greater number of comments. The study found multiple correlations between Facebook page statistics and user engagement.
 
 % here
-The metrics for comment count and share count are correlated. This correlation is sensible, considering that users talk about shared content. Moreover, the shared content is interesting. Shared content also creates more interesting content. Linear models also found a correlation between fan count and share count. The more fans a page has, the more opportunities exist for people to share the content. Alternatively, people are fans of the page because they like the content and if people like content, they are more likely to share it. 
-
-Linear models also discovered a correlation between comment count and comment sentiment. Posts that receive many comments are likely to receive positive comments. We can infer that happier users comment at a higher rate, or positive content elicits more comments, which are also likely to be positive. Interestingly, comment count was not correlated to share count. One might infer that just because a post draws attention and comments does not mean they are likely to get shared. It might also mean that happier content, which receives more comments, does not cause users to share that content. Page metrics are also not correlated with comment count, i.e., a famous or less popular page did not necessarily generate more or fewer comments. The study uses the lack of correlation to justify comparing posts across Facebook pages. 
 
 \subsection{Modeling}
 
@@ -275,6 +272,10 @@ The decision tree performed far worse than the combined model. While the exact r
 
 \subsubsection{RQ 1: Ability to Predict User Engagement}
 
+Popular pages do not generate more comments per post. This might capture a phenomenon where brands receive many followers but produce less interesting content. Therefore generating many followers does not necessitate an engaged user base. The opposite effect is also seen where brands have entire social media teams that produce high quality content that in turn generates a lot of engagement. On social media, a large page also needs to produce quality content in order to generate user engagement.
+
+Correlations exist in the occurrence of some user engagement metrics. Principally, there is a general correlation between user comment sentiment and other metrics, specifically comment count and share count. However, the correlation between comment and share count is much weaker. The implication is that posts that elicit positive comments will also receive a greater number comments and shares. 
+
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{images/Comment_Count_Prediction_vs_Actual.png}
@@ -296,16 +297,9 @@ The decision tree performed far worse than the combined model. While the exact r
 \label{comment_sentiment_histogram}
 \end{figure}
 
+The models perform the best on distributions that skew toward fewer counts, such as comment and share counts. These are distributions that resemble the geometric distribution; those that heavily decrease for higher counts. The actual vs predicted histograms look very similar and how lower model losses, as shown in Figure \ref{share_count_histogram} and Figure \ref{comment_count_histogram}. Models do especially well at predicting share count and comment count on Facebook brand posts.
 
-Comment count and share count are correlated, which implies that posts which are shared more often also receive a greater number of comments. The relationship between comment count and share count is senisble since users will share content they find interesting to talk about. The same correlation is also seen with fan count, which makes intuitive sense since more users following a page results in a larger number of user interactions. Alternatively, people are fans of the page because they like the content and if people like content, they are more likely to share it.
-
-There also exists a higher correlation between comment count and comment sentiment. Posts that receive many comments are likely to receive positive comments. We can infer that happier users comment at a higher rate or positive content elicits more comments. In turn, one might expect that highly positive posts might elicit positive comments. Posts that receive many comments tend to contain an overall more positive comment sentiment.
-
-Comment count is not correlated with share count. This infers that posts with many comments do not necessitate users share the post. This might occur on interesting content that is less relevant to other users. Otherwise, some types of content might exhibit different share rates. The study found little relationship between comment count and share counts.
-
-Popular pages do not generate more comments per post. This might capture a phenomenon where brands receive many followers but produce less interesting content. At the same time, some brands have entire social media teams and produce higher quality content, which in turn generates a lot of engagement. Generating many followers is not equivalent to generating engaged users. Many brands have many followers but generate very little user engagement on their posts.
-
-The study found a relation in the propensity to share a post and the resulting comment sentiment. Posts that reciprocate positive sentiment are more likely to be shared. Brands should consider how to increase user sentiment, which will result in users also sharing the post more frequently. The study found a strong relationship between user comment sentiment and the propensity to share the post.
+The model achieves a quite low model loss for predicting user sentiment for posts. This is largely possible due to the close relationship between post sentiment and comment sentiment. The resulting actual vs predicted comment sentiment is shown in Figure \ref{comment_sentiment_histogram}. The study successfully predicts comment sentiment for Facebook brand posts.
 
 \subsubsection{RQ 2: Performance of Images vs Text}
 
